@@ -1,0 +1,20 @@
+# 服务端口
+server:
+    port: 10086
+
+# Eureka的服务信息
+spring:
+    application:
+        name: eureka10086.com
+
+# Eureka的地址信息
+eureka:
+    client:
+        service-url:
+          # 集群下的配置
+          defaultZone: http://eureka10087.com:10087/eureka/
+          # 单机模式配置
+          #defaultZone: http://localhost:10086/eureka/
+        # 是否拉取其它服务的信息，默认是true
+        fetch-registry: false
+        register-with-eureka: false    #false表示不向注册中心注册自己。

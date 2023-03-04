@@ -1,0 +1,17 @@
+# 服务端口
+server:
+    port: 10087
+
+# Eureka的服务信息
+spring:
+    application:
+        name: eureka10087.com
+
+# Eureka的地址信息
+eureka:
+    client:
+        service-url:
+          defaultZone: http://eureka10086.com:10086/eureka/   # 指向其他集群地址
+        # 是否拉取其它服务的信息，默认是true
+        fetch-registry: false
+        register-with-eureka: false    #false表示不向注册中心注册自己。我的职责就是维护服务实例，并不需要去检索服务

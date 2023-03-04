@@ -1,0 +1,39 @@
+# 服务端口
+server:
+    port: 8081
+
+## Eureka的地址信息
+#eureka:
+#    client:
+#        service-url:
+#          defaultZone: http://eureka10086.com:10086/eureka,http://eureka10087.com:10087/eureka
+#        # 是否拉取其它服务的信息，默认是true
+#        fetch-registry: true
+#        register-with-eureka: true    #false表示不向注册中心注册自己。
+
+#spring相关配置
+spring:
+    application:
+        name: user-client   #服务名
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource  #当前数据源操作类型
+        driver-class-name: com.mysql.cj.jdbc.Driver  #数据库驱动包
+        url: jdbc:mysql://localhost:3306/cloud-user?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+        username: root
+        password: 123456
+    cloud:
+        nacos:
+            server-addr: localhost:8848 # nacos服务地址，也就是将自己注册到注册中心
+            discovery:
+                cluster-name: HZ # 集群名称
+
+#mybatis:配置
+mybatis:
+    type-aliases-package: com.test.user.pojo
+    configuration:
+        map-underscore-to-camel-case: true
+logging:
+    level:
+        com.test: debug
+    pattern:
+        dateformat: MM-dd HH:mm:ss:SSS
